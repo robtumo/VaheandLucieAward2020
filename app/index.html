@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no">
+<title>Draw2Txt OCR</title>
+<link href="Draw 2 Text v1.0/favicons/128x128.png" rel="shortcut icon" type="image/png">
+<link rel="stylesheet" href="css/draw2text.min.css">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+<style>
+body {
+	background: url('img/hex.png') repeat #efefef;
+	background-attachment: fixed;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+}
+.draw-content {
+	max-width: 1000px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important;
+    margin: 40px auto;
+}
+.draw-content h1 {
+	color: #484848;
+	margin: 0;
+}
+.draw-content h2 {
+	color: #8c8c8c;
+}
+@media (max-width: 736px) {
+    iframe {
+        width: 100% !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="main-content">
+
+	<div class="draw-content">
+		<div class="draw-top">
+			<h1 class="text-center">Draw 2 Text</h1>
+			<h2>Draw some text on canvas and click on "TRANSFORM" button</h2>
+			<div id="draw-section"></div>
+		</div>
+        
+        <!-- <br><br> -->
+        <!-- <hr> -->
+
+</div><!-- /#main-content -->
+
+<script src="js/jquery-1.11.1.min.js"></script><!--  http://code.jquery.com/jquery-1.11.1.min.js -->
+<script src="js/tesseract.js"></script>
+<script src="js/draw2text.min.js"></script>
+<script>
+jQuery(document).ready(function($) {
+	$('#draw-section').draw2text({
+		lang: 'eng',
+        width: '100%',
+        heightCanvas: '200px',
+        backgroundCanvas: 'white',
+        colorCanvas: 'black',
+        lineCanvas: 'round',//round, square, butt
+        controls: true,
+        preloader: 'img/loader.gif',
+        btnTransform: 'Transform',
+        clearBtn: 'Clear',
+        quick: false,
+        file: true,
+        calculator: true
+	});
+});
+</script>
+</body>
+</html>
